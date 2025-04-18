@@ -1,7 +1,7 @@
 <div align="center">
 
 # NoisyRollout: Reinforcing Visual Reasoning with Data Augmentation
-[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)]() [![Hugging Face Collection](https://img.shields.io/badge/Model_&_Dataset-HuggingFace-yellow?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/collections/xyliu6/noisyrollout-67ff992d1cf251087fe021a2)
+[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2504.13055) [![Hugging Face Collection](https://img.shields.io/badge/Model_&_Dataset-HuggingFace-yellow?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/collections/xyliu6/noisyrollout-67ff992d1cf251087fe021a2)
 
 </div>
 
@@ -91,11 +91,14 @@ python main.py \
 ## Citation
 If you find our works useful for your research, please consider citing:
 ```bibtex
-@article{liu2025noisyrollout,
-  title={NoisyRollout: Reinforcing Visual Reasoning with Data Augmentation},
-  author={Xiangyan Liu and Jinjie Ni and Zijian Wu and Chao Du and Longxu Dou and Haonan Wang and Tianyu Pang and Michael Qizhe Shieh},
-  howpublished = {\url{https://github.com/John-AI-Lab/NoisyRollout}},
-  year={2025}
+@misc{liu2025noisyrollout,
+      title={NoisyRollout: Reinforcing Visual Reasoning with Data Augmentation}, 
+      author={Xiangyan Liu and Jinjie Ni and Zijian Wu and Chao Du and Longxu Dou and Haonan Wang and Tianyu Pang and Michael Qizhe Shieh},
+      year={2025},
+      eprint={2504.13055},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2504.13055}, 
 }
 ```
 
