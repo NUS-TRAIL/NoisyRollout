@@ -20,8 +20,8 @@ SYSTEM_PROMPT="""You FIRST think about the reasoning process as an internal mono
 
 python3 -m verl.trainer.main \
     config=training_scripts/config.yaml \
-    data.train_files=hiyouga/geometry3k@train \
-    data.val_files=hiyouga/geometry3k@test \
+    data.train_files=xyliu6/geometry3k@train \
+    data.val_files=xyliu6/geometry3k@test \
     data.system_prompt="${SYSTEM_PROMPT}" \
     data.max_response_length=2048 \
     data.max_pixels=1000000 \
