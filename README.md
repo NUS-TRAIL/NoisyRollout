@@ -33,6 +33,7 @@
 conda create -n noisyrollout python=3.11 -y && conda activate noisyrollout
 
 pip3 install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 transformers==4.49.0 numpy==1.26.4
+pip3 install google-generativeai
 
 # Use this version of vLLM to avoid memory leaks.
 pip3 install --no-cache-dir vllm --pre --extra-index-url "https://wheels.vllm.ai/227578480d71fc94ef46ca77fb69496412158d68"
@@ -41,6 +42,7 @@ cp -r vllm/vllm/ ~/miniconda3/envs/noisyrollout/lib/python3.11/site-packages/
 
 pip3 install -e .
 ```
+> 🚧 The vllm wheel seems to be broken now, you can download this wheel from this [link](https://drive.google.com/file/d/1tO6BQ4omkeXTQhDBTAFi7U7qR8vF55wP/view?usp=sharing).
 
 ### (Step 2) Training
 ```bash
