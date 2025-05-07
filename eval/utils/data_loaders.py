@@ -144,7 +144,7 @@ def load_hallubench_dataset(data_path: str) -> List[Dict]:
             question = item["question"].split("?")[:-1][0]
         else:
             question = item["question"]
-        question += "? You final answer can only be yes or no."
+        question += "? You final answer can only be \\boxed{yes} or \\boxed{no}."
         gt_answer = "yes" if int(item["gt_answer"]) == 1 else "no"
         sid, fid, qid = item["set_id"], item["figure_id"], item["question_id"]
         dataset.append({
