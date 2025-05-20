@@ -45,7 +45,12 @@ def prepare_prompts(dataset_name: str, samples: List[Dict], args) -> Tuple[List[
             continue
         
         # Create prompt
-        prompt_text = f"<|im_start|>system\n{args.system_prompt}<|im_end|>\n<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|>{item['question']}<|im_end|>\n<|im_start|>assistant\n"
+        if args.version == "7b":
+            prompt_text = f"<|im_start|>system\n{args.system_prompt}<|im_end|>\n<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|>{item['question']}<|im_end|>\n<|im_start|>assistant\n"
+        elif args.version == "32b":
+            prompt_text = f"<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|>{args.system_prompt} {item['question']}<|im_end|>\n<|im_start|>assistant\n"
+        else:
+            raise
         
         prompts.append({
             "prompt": prompt_text,

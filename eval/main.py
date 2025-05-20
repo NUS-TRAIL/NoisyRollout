@@ -33,6 +33,7 @@ def parse_arguments():
     parser.add_argument("--tensor-parallel-size", type=int, default=2, help="Number of GPUs for tensor parallelism")
     parser.add_argument("--eval-threads", type=int, default=32, help="Number of threads for evaluation")
     parser.add_argument("--system-prompt", type=str, default="You FIRST think about the reasoning process as an internal monologue and then provide the final answer. The reasoning process MUST BE enclosed within <think> </think> tags. The final answer MUST BE put in \\boxed{}.", help="System prompt for the model")
+    parser.add_argument("--version", type=str, default="7b")
     
     # Dataset selection
     parser.add_argument("--datasets", type=str, default="all", help="Comma-separated list of datasets to evaluate: geo3k,wemath,mathvista,mathverse,mathvision or 'all'")
