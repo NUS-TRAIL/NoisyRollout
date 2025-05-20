@@ -20,7 +20,7 @@ SYSTEM_PROMPT="""You FIRST think about the reasoning process as an internal mono
 
 python3 -m verl.trainer.main \
     config=training_scripts/config.yaml \
-    data.train_files=xyliu6/k12-freeform@mini_train \
+    data.train_files=xyliu6/k12-freeform@train \
     data.val_files=xyliu6/k12-freeform@test \
     data.system_prompt="${SYSTEM_PROMPT}" \
     data.max_response_length=2048 \
@@ -41,10 +41,11 @@ python3 -m verl.trainer.main \
     trainer.project_name=${PROJECT_NAME} \
     trainer.n_gpus_per_node=8 \
     trainer.save_freq=20 \
+    trainer.total_episodes=10 \
     worker.actor.is_noisy=true \
     worker.actor.aug_type=gaussian \
     worker.actor.gaussian_noise_step=450 \
     worker.actor.decay_mode=sigmoid \
-    worker.actor.decay_coef=30 \
+    worker.actor.decay_coef=60 \
     worker.actor.decay_sig_mid_step=40
 
