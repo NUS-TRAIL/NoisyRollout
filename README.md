@@ -6,7 +6,7 @@
 </div>
 
 ## ⚡ Updates
-
+* 20/05/2025: 🔥 We update the checkpoints of our trained models (larger model sizes, more training data)!
 * 18/04/2025: 🎉 We release our paper, models and codebase.
 
 ## 🚀 TL;DR
@@ -29,6 +29,7 @@
 
 ## 🛠️ Usage
 ### (Step1) Install
+First, download the wheel of vllm from this [link](https://drive.google.com/file/d/1tO6BQ4omkeXTQhDBTAFi7U7qR8vF55wP/view?usp=sharing).
 ```bash
 conda create -n noisyrollout python=3.11 -y && conda activate noisyrollout
 
@@ -36,13 +37,12 @@ pip3 install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 transformers==4.
 pip3 install google-generativeai
 
 # Use this version of vLLM to avoid memory leaks.
-pip3 install --no-cache-dir vllm --pre --extra-index-url "https://wheels.vllm.ai/227578480d71fc94ef46ca77fb69496412158d68"
+pip3 install vllm-0.7.4.dev65+g22757848-cp38-abi3-manylinux1_x86_64.whl
 git clone -b verl_v1 https://github.com/hiyouga/vllm.git
 cp -r vllm/vllm/ ~/miniconda3/envs/noisyrollout/lib/python3.11/site-packages/
 
 pip3 install -e .
 ```
-> 🚧 The vllm wheel seems to be broken now, you can download this wheel from this [link](https://drive.google.com/file/d/1tO6BQ4omkeXTQhDBTAFi7U7qR8vF55wP/view?usp=sharing).
 
 ### (Step 2) Training
 ```bash
@@ -63,8 +63,8 @@ Before running the evaluation, please download the evaluation datasets from [�
 source ~/.bashrc
 source ~/miniconda3/bin/activate noisyrollout
 
-export VLLM_ATTENTION_BACKEND=XFORMERS
-export VLLM_USE_V1=0
+export VLLM_ATTENTION_BACKEND=XFORMERS # remove it when using 32b models
+export VLLM_USE_V1=0 # remove it when using 32b models
 export GOOGLE_API_KEY="xxx" # put your api key here
 
 HF_MODEL_PATH="xyliu6/NoisyRollout-Geo3K-7B"
@@ -86,7 +86,8 @@ python main.py \
   --max-pixels 1000000 \
   --max-model-len 8192 \
   --temperature 0.0 \
-  --eval-threads 24
+  --eval-threads 24 \
+  --version="7b" # change it to `32b` when using 32b models
 ```
 > 🚧 Currently, only `Gemini-2.0-Flash-001` is supported for parsing generated responses. Support for additional models will be introduced in future updates.
 
@@ -107,6 +108,6 @@ If you find our works useful for your research, please consider citing:
 ## Acknowledgement
 * This work is supported by [Sea AI Lab](https://sail.sea.com/) for computing resources.
 * The training codes are built on [EasyR1](https://github.com/hiyouga/EasyR1), and the evaluation suite employs [vLLM](https://github.com/vllm-project/vllm) for acceleration.
-* The base model is from [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct).
+* The base models are from [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) and [Qwen2.5-VL-32B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-32B-Instruct).
 * The original training datasets are from [Geometry3K](https://huggingface.co/datasets/hiyouga/geometry3k) and [K12](https://huggingface.co/datasets/FanqingM/MM-Eureka-Dataset).
 * The evaluation datasets are from [MathVerse](https://huggingface.co/datasets/AI4Math/MathVerse), [MathVision](https://huggingface.co/datasets/MathLLMs/MathVision), [MathVista](https://huggingface.co/datasets/AI4Math/MathVista), [WeMath](https://huggingface.co/datasets/We-Math/We-Math), and [HallusionBench](https://github.com/tianyi-lab/HallusionBench).
