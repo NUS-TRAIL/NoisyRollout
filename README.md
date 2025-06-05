@@ -94,14 +94,11 @@ python main.py \
 ## Citation
 If you find our works useful for your research, please consider citing:
 ```bibtex
-@misc{liu2025noisyrollout,
-      title={NoisyRollout: Reinforcing Visual Reasoning with Data Augmentation}, 
-      author={Xiangyan Liu and Jinjie Ni and Zijian Wu and Chao Du and Longxu Dou and Haonan Wang and Tianyu Pang and Michael Qizhe Shieh},
-      year={2025},
-      eprint={2504.13055},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2504.13055}, 
+@article{liu2025noisyrollout,
+  title={Noisyrollout: Reinforcing visual reasoning with data augmentation},
+  author={Liu, Xiangyan and Ni, Jinjie and Wu, Zijian and Du, Chao and Dou, Longxu and Wang, Haonan and Pang, Tianyu and Shieh, Michael Qizhe},
+  journal={arXiv preprint arXiv:2504.13055},
+  year={2025}
 }
 ```
 
