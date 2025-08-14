@@ -80,7 +80,7 @@ class ImageAugmenter:
         """Apply rotation to image"""
         max_angle = self.rotate_angle * decay
         angle = random.uniform(-max_angle, max_angle)
-        return image.rotate(angle, resample=Image.BILINEAR, expand=False)
+        return image.rotate(angle, resample=Image.BILINEAR, expand=True)
     
     def apply_crop_fill(self, image, decay=1.0):
         """Apply random region filling (occlusion)"""
